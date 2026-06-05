@@ -1,4 +1,6 @@
 import reflex as rx
+from mireflex.navegation.state import NavState
+from mireflex.navegation import routes
 
 
 
@@ -19,7 +21,7 @@ def navbar() -> rx.Component:
             rx.hstack(
                 rx.hstack(
                     rx.image(
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSX2zqPP_vk9-vCAufraEUgB_RMTp6Y-V2khQ&s, ",
+                        src="https://cdn-icons-png.flaticon.com/512/831/831378.png ",
                         width="2.25em",
                         height="auto",
                         border_radius="25%",
@@ -28,7 +30,7 @@ def navbar() -> rx.Component:
                     align_items="center",
                 ),
                 rx.hstack(
-                    navbar_link("Home", "/"),
+                    navbar_link("Home",routes.HOME),
                     rx.menu.root(
                         rx.menu.trigger(
                             rx.button(
@@ -45,7 +47,7 @@ def navbar() -> rx.Component:
                             rx.menu.item("o pa aca"),
                         ),
                     ),
-                    navbar_link("vente pa aca", "/data_base"),
+                    navbar_link("vente pa aca", routes.DATABASE),
                     justify="end",
                     spacing="5",
                 ),
@@ -57,18 +59,21 @@ def navbar() -> rx.Component:
             rx.hstack(
                 rx.hstack(
                     rx.image(
-                        src="https://web.reflex-assets.dev/other/logo.jpg",
+                        src="https://cdn-icons-png.flaticon.com/512/831/831378.png",
                         width="2em",
                         height="auto",
                         border_radius="25%",
                     ),
-                    rx.heading("Reflex", size="6", weight="bold"),
+                    rx.heading("Pedro", size="6", weight="bold"),
                     align_items="center",
                 ),
                 rx.menu.root(
                     rx.menu.trigger(rx.icon("menu", size=30)),
                     rx.menu.content(
-                        rx.menu.item("Home"),
+                        rx.menu.item(
+                              "Home",
+                              on_click=NavState.to_home
+                              ),
                         rx.menu.sub(
                             rx.menu.sub_trigger("Services"),
                             rx.menu.sub_content(
@@ -79,7 +84,10 @@ def navbar() -> rx.Component:
                         ),
                         rx.menu.item("About"),
                         rx.menu.item("Pricing"),
-                        rx.menu.item("Contact"),
+                        rx.menu.item(
+                              "Vente pa aca",
+                              on_click=NavState.to_data_base
+                              ),
                     ),
                     justify="end",
                 ),

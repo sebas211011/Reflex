@@ -16,24 +16,18 @@ def index() -> rx.Component:
     index_child = rx.container(
         rx.vstack(
             rx.heading(
-                "Welcome to Reflex!",
+                "Bienvenidos a Pedro",
                  size="9"
             ),
             rx.text(
-                "Get started by editing ",
-                rx.code(f"{config.app_name}/{config.app_name}.py"),
+                "ve a 'vente pa aca' ",
                 size="5",
-            ),
-            rx.link(
-                rx.button("Check out our docs!"),
-                href="https://reflex.dev/docs/getting-started/introduction/",
-                is_external=True,
             ),
             spacing="5",
             justify="center",
             align="center",
             min_height="85vh",
-        ),
+        )
     )
     return base_page(index_child)
 
@@ -41,4 +35,4 @@ def index() -> rx.Component:
 
 app = rx.App()
 app.add_page(index)
-app.add_page(data_base,route="/data_base")
+app.add_page(data_base,route="/database")
