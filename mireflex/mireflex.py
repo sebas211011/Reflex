@@ -2,7 +2,7 @@
 
 import reflex as rx
 from .pages.base import base_page
-from .pages.datos import data_base
+from .folder_datos.datos import data_base
 
 from rxconfig import config
 
